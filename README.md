@@ -29,10 +29,18 @@ Two events will be emitted, one when someone deposits ether, and one when ether 
 
 ### Functions
 
-The deposit function updates the depositors mapping and emits an event that will log the address and the amount of the depositor.
+The deposit function updates the depositors mapping and emits an event that will log the address and the amount of the depositor. It also emits an even that will log the timestamp and amount of the deposit.
 
 The withdraw function uses an onlyOwner modifier to ensure that only the owner can call it. We first emit an event and then destroy the contract, sending the balance of the contract to the owner.
 
-A getBalnce function simply returns the balance of the contract. An event is emmitted logging the balance.
+The withdrawSome(0 function allows the user to withdraw a pecified amount from the contract. It does not destroy the contract. An event is emitted.)
+
+A getBalance function simply returns the balance of the contract. An event is emmitted logging the balance.
 
 There is a fallback function (receive) that will also emit an event detailing the deposit details and update teh depositors mapping.
+
+The mapping is public so we have a getter function for it. By entering an address we can see how much eth that adddress has deposited into the contract.
+
+---
+
+On the second iteration I added a withdrawSome function that allows the owner to withdraw some amount from the piggy bank. I would like to eventually make this function optional when the contract is deployed, thereby allowing the user to choose the kind of piggy bank they want.

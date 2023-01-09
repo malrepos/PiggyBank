@@ -2,6 +2,9 @@
 
 pragma solidity ^0.8.0;
 
+
+
+
 contract PiggyBank {
     // mapping to track depositors and amount
     mapping(address => uint) public depositors;
@@ -12,6 +15,8 @@ contract PiggyBank {
 // an address maps to a timestamp which maps to an amount
 // for each address we can see when a deposit is made and the amount
     mapping(address => mapping(uint => uint)) expandedDepositors;
+
+    uint[] public orderOfDeposits;
 
     address payable owner;
 
@@ -34,6 +39,7 @@ contract PiggyBank {
         //payable(address(this)).transfer(msg.value);
         depositors[msg.sender] = msg.value;
         timeDeposited[block.timestamp] = msg.sender; // track when a deposit is made, and by whom
+        orderOfDeposits.push(msg.value); // push deposit amount to array
         emit Deposit(msg.sender, msg.value); //emit event with sender and value
         emit moneyAdded(block.timestamp, msg.sender); //emit event with time and msg.sender
     }
@@ -45,8 +51,12 @@ contract PiggyBank {
         selfdestruct(payable(owner));
     }
 
-    function withdrawSome(uint _amount) external onlyOwner {
-        require(_amount >= address(this).balance, "Not enough funds");
+    error insufficientFundsError(address _caller, uint i);
+
+    function withdrawSome(uint _amount) external payable onlyOwner {
+        if(_amount < address(this).balance){
+            revert insufficientFundsError(msg.sender, msg.value);
+        }
         payable(address(this)).transfer(_amount);
         emit Balance(address(this).balance);
     }

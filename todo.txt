@@ -2,9 +2,6 @@
 
 - import onlyOwner from openZeppelin simply to get use to that contract
 
-- add an array that tracks the order of deposits. 0: amount)
-
-- turn require error reeturn statement in withdrawSome() into a custome error
 
 - test expandedDepositors mapping
 

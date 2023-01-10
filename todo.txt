@@ -1,7 +1,6 @@
 ##### Future Improvements
 
-- import onlyOwner from openZeppelin simply to get use to that contract
-
+- deploy to goerli through metamask
 
 - test expandedDepositors mapping
 

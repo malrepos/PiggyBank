@@ -2,10 +2,10 @@
 
 pragma solidity ^0.8.0;
 
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/docs-v4.x/contracts/access/Ownable.sol";
 
 
-
-contract PiggyBank {
+contract PiggyBank is Ownable {
     // mapping to track depositors and amount
     mapping(address => uint) public depositors;
     //mapping to track the time a deposit is made and by whom
@@ -18,10 +18,10 @@ contract PiggyBank {
 
     uint[] public orderOfDeposits;
 
-    address payable owner;
+    address payable host;
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "You are not the owner.");
+        require(msg.sender == host, "You are not the owner.");
         _;
     }
 
@@ -31,7 +31,7 @@ contract PiggyBank {
     event Balance(uint _balance);
 
     constructor() {
-        owner = payable(msg.sender); // set the owner to deployer's address
+        host = payable(msg.sender); // set the owner to deployer's address
     }
 
     // function allowing anyone to deposit ether to the contract
@@ -48,7 +48,7 @@ contract PiggyBank {
     // the contract is destroyed - this piggy bank is broken
     function withdraw() external onlyOwner {
         emit Withdraw(address(this).balance); // emit this event with amount sent to owner
-        selfdestruct(payable(owner));
+        selfdestruct(payable(host));
     }
 
     error insufficientFundsError(address _caller, uint i);

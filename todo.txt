@@ -1,8 +1,6 @@
 ##### Future Improvements
 
-- deploy to goerli through metamask
-
-- test expandedDepositors mapping
+- Use etherescan to interact with the contract
 
 - open this contract in Hardhat for testing
 

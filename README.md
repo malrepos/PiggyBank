@@ -44,3 +44,17 @@ The mapping is public so we have a getter function for it. By entering an addres
 ---
 
 On the second iteration I added a withdrawSome function that allows the owner to withdraw some amount from the piggy bank. I would like to eventually make this function optional when the contract is deployed, thereby allowing the user to choose the kind of piggy bank they want.
+
+Deployment
+
+The contract was deployed to the Goerli testnet:
+
+https://goerli.etherscan.io/tx/0x6cd9d5af48e5f93d8df411be8cb5c1d66da72550bac53b8cd4c40279decbeb68
+
+And here is the deployed contract on etherescan:
+
+https://goerli.etherscan.io/address/0x577e8b6c178295ae3a6f08d100f5c894a926906d
+
+![Goerli Contract Address QR code][def]
+
+[def]: images\Goerli_QR.png

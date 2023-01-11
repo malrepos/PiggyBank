@@ -55,4 +55,4 @@ And here is the deployed contract on etherescan:
 
 https://goerli.etherscan.io/address/0x577e8b6c178295ae3a6f08d100f5c894a926906d
 
-![Goerli Contract Address QR code](images\Goerli_QR.png)
+![Goerli Contract Address QR code](images/Goerli_QR.png)

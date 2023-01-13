@@ -4,5 +4,11 @@
 
 - open this contract in Hardhat for testing
 
+- use draw.io to create a diagram of my application
+
+- test the app using Remix and take screenshots
+
+- document gas costs for each function through Remix
+
 
 - allow the user to include or exclude the withdrawSome function

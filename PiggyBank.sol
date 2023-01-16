@@ -16,14 +16,14 @@ contract PiggyBank is Ownable {
 // for each address we can see when a deposit is made and the amount
     mapping(address => mapping(uint => uint)) expandedDepositors;
 
-    uint[] public orderOfDeposits;
+    uint[] orderOfDeposits;
 
     address payable host;
 
-    modifier onlyOwner() {
-        require(msg.sender == host, "You are not the owner.");
-        _;
-    }
+    // modifier onlyOwner() {
+    //     require(msg.sender == host, "You are not the owner.");
+    //     _;
+    // }
 
     event Deposit(address indexed _sender, uint _amount);
     event moneyAdded(uint indexed _when, address _sender);
@@ -52,12 +52,13 @@ contract PiggyBank is Ownable {
     }
 
     error insufficientFundsError(address _caller, uint i);
+    error indexOutOfRange(address _caller, uint index);
 
-    function withdrawSome(uint _amount) external payable onlyOwner {
+    function withdrawSome(uint _amount, address _to) external payable onlyOwner {
         if(_amount < address(this).balance){
             revert insufficientFundsError(msg.sender, msg.value);
         }
-        payable(address(this)).transfer(_amount);
+        payable(_to).transfer(_amount);
         emit Balance(address(this).balance);
     }
 
@@ -67,9 +68,18 @@ contract PiggyBank is Ownable {
         return address(this).balance;
     }
 
+    function getOrderOfDeposits(uint _index)public view returns(uint){
+        if(orderOfDeposits[_index] > orderOfDeposits.length -1){
+            revert indexOutOfRange(msg.sender, _index);
+        }else{
+            return orderOfDeposits[_index];
+        }
+    }
+
     // a fallback function to receive ether
     receive() external payable {
-        emit Deposit(msg.sender, msg.value);
+        
         depositors[msg.sender] = msg.value;
+        emit Deposit(msg.sender, msg.value);
     }
 }

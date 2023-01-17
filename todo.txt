@@ -2,10 +2,12 @@
 
 - fix withdrawSome so that I can withdraw partial amounts to an address
 
-- fix get Array of depositors
+- change withdrawSome to call()
 
-- remove or improve timeDeposited mapping
+- fix get Array of depositors so that I can return a value from an index
+- add a function so that I can return the whole array of deposits
 
+- remove all unnecessary code for now
 - Use etherescan to interact with the contract
 
 - open this contract in Hardhat for testing

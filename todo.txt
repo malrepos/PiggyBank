@@ -1,13 +1,9 @@
 ##### Future Improvements
 
-- fix withdrawSome so that I can withdraw partial amounts to an address
 
 - change withdrawSome to call()
 
-- fix get Array of depositors so that I can return a value from an index
-- add a function so that I can return the whole array of deposits
 
-- remove all unnecessary code for now
 - Use etherescan to interact with the contract
 
 - open this contract in Hardhat for testing
@@ -17,6 +13,12 @@
 - test the app using Remix and take screenshots
 
 - document gas costs for each function through Remix
+
+- deploy to goerli
+
+- build a simple frontend
+
+- deploy frontend to netlify site
 
 
 - allow the user to include or exclude the withdrawSome function

@@ -45,14 +45,17 @@ contract PiggyBank is Ownable {
         selfdestruct(payable(host));
     }
 
+    //custom errors
     error insufficientFundsError(address _caller, uint i);
     error indexOutOfRange(address _caller, uint index);
 
-    function withdrawSome( address _to) external payable onlyOwner {
-        if(msg.value < address(this).balance){
+    //withdraw a partial amount
+    //amount entered in wei
+    function withdrawSome( address _to, uint _amount) external payable onlyOwner {
+        if(_amount > address(this).balance){
             revert insufficientFundsError(msg.sender, msg.value);
         }
-        payable(_to).transfer(msg.value);
+        payable(_to).transfer(_amount);
         emit Balance(address(this).balance);
     }
 
@@ -62,12 +65,14 @@ contract PiggyBank is Ownable {
         return address(this).balance;
     }
 
-    function getOrderOfDeposits(uint _index)public view returns(uint){
-        if(orderOfDeposits[_index] >= orderOfDeposits.length -1){
-            revert indexOutOfRange(msg.sender, _index);
-        }else{
-            return orderOfDeposits[_index];
-        }
+    //get an array of all deposits made
+    function getArray()external view returns(uint[] memory){
+        return orderOfDeposits;
+    }
+
+    //get the deposited value by entering an index
+    function getArrayByIndex(uint _index)external view returns(uint){
+        return orderOfDeposits[_index];
     }
 
     // a fallback function to receive ether
@@ -77,3 +82,4 @@ contract PiggyBank is Ownable {
         emit Deposit(msg.sender, msg.value);
     }
 }
+

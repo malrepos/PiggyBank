@@ -2,7 +2,9 @@
 
 pragma solidity ^0.8.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/docs-v4.x/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+import 'hardhat/sonsol.sol';
 
 
 contract PiggyBank is Ownable {

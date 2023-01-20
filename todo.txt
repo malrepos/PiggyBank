@@ -1,12 +1,12 @@
 ##### Future Improvements
 
+- write the deploy script and deploy
+
+- write a test for 1 function
+
 
 - change withdrawSome to call()
 
-
-- Use etherescan to interact with the contract
-
-- open this contract in Hardhat for testing
 
 - use draw.io to create a diagram of my application
 
@@ -15,6 +15,8 @@
 - document gas costs for each function through Remix
 
 - deploy to goerli
+
+- deploy to goerli with Etherscan verification
 
 - build a simple frontend
 

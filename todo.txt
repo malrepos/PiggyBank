@@ -8,9 +8,7 @@
 - change withdrawSome to call()
 
 
-- use draw.io to create a diagram of my application
 
-- test the app using Remix and take screenshots
 
 - document gas costs for each function through Remix
 
@@ -22,5 +20,8 @@
 
 - deploy frontend to netlify site
 
+- use draw.io to create a diagram of my application
+
+- test the app using Remix and take screenshots
 
 - allow the user to include or exclude the withdrawSome function

@@ -1,16 +1,23 @@
 # PiggyBank
 
+![PiggyBank](images\brano-heYdDdq0cbE-unsplash.jpg);
+
 A piggy bank for digital currency.
 
-A piggy bank is an easy application to write that has some usefulness in the new digital space. I had a piggy bank as a kid that I put money into fairly regularly, and I can imagine a similar activity for kids today using digital currency. It also applies basic principles that can be used in a regular savings account, group investment project. These will be good follow on projects.
+A piggy bank is an easy application to write that has some usefulness in the new digital space. I had a piggy bank as a kid that I put money into fairly regularly, and I can imagine a similar activity for kids today using digital currency. It also applies basic principles that can be used in a regular savings account, group investment project, or DAO treasury, albeit very simple.
 
 ## Process
 
-There are a few decisions that need to be made about the functionality of our piggy bank before we build it: - can anyone deposit ether into our piggy bank, or only the owner? - can the owner withdraw partial amounts from the piggy bank? Or, is it one of those piggies that need to be broken in order to get the money out?
+There are a few decisions that need to be made about the functionality of our piggy bank before we build it:
+
+- can anyone deposit ether into our piggy bank, or only the owner?
+- can the owner withdraw partial amounts from the piggy bank? Or, is it one of those piggies that need to be broken in order to get the money out?
 
 I decided to allow anyone to deposit ether into the piggy bank, thereby making it more of a kid friendly dapp.
 
-I aslo made this an old school piggy bank with no hole on the bottom to take amounts out. To withdraw from this bank you have to destroy the pig.
+I also made this an old school piggy bank with no hole on the bottom to take amounts out. To withdraw from this bank you have to destroy the pig.
+
+However there is an optional function called withdrawSome that can be included that will allow the user to withdraw a partial amount to an address.
 
 ### State Variables
 
@@ -47,7 +54,7 @@ On the second iteration I added a withdrawSome function that allows the owner to
 
 Deployment
 
-The contract was deployed to the Goerli testnet:
+Using Remix, the contract was deployed to the Goerli testnet:
 
 https://goerli.etherscan.io/tx/0x6cd9d5af48e5f93d8df411be8cb5c1d66da72550bac53b8cd4c40279decbeb68
 
@@ -56,3 +63,5 @@ And here is the deployed contract on etherescan:
 https://goerli.etherscan.io/address/0x577e8b6c178295ae3a6f08d100f5c894a926906d
 
 ![Goerli Contract Address QR code](images/Goerli_QR.png)
+
+A Harhat project was started and the original contract added.

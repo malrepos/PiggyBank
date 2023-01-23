@@ -1,8 +1,6 @@
 const { expect } = require("chai");
 const { hexStripZeros } = require("ethers/lib/utils");
-const {
-  isCallTrace,
-} = require("hardhat/internal/hardhat-network/stack-traces/message-trace");
+const  = require("hardhat/internal/hardhat-network/stack-traces/message-trace");
 
 decribe("PiggyBank", () => {
   it("should do something", async () => {

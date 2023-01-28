@@ -57,7 +57,9 @@ contract PiggyBank is Ownable {
         if(_amount > address(this).balance){
             revert insufficientFundsError(msg.sender, msg.value);
         }
-        payable(_to).transfer(_amount);
+        (bool success,) = _to.call{value: _amount, gas: 5000}("");
+        require(success, "Call failed");
+        // payable(_to).transfer(_amount);
         emit Balance(address(this).balance);
     }
 
@@ -84,4 +86,3 @@ contract PiggyBank is Ownable {
         emit Deposit(msg.sender, msg.value);
     }
 }
-

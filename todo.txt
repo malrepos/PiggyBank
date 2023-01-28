@@ -7,7 +7,6 @@
 - write 1 task
 
 
-- change withdrawSome to call()
 
 
 
@@ -21,8 +20,6 @@
 - build a simple frontend
 
 - deploy frontend to netlify site
-
-- use draw.io to create a diagram of my application
 
 - test the app using Remix and take screenshots
 
